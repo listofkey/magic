@@ -1,0 +1,27 @@
+name: CI 入门示例
+
+# 1. 触发条件：当推送到 main 分支时触发
+on:
+  push:
+    branches: [ "main" ]
+
+# 2. 任务列表
+jobs:
+  build-and-test:
+    # 运行环境：使用最新的 Ubuntu 虚拟机
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 步骤 1: 拉取代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # 步骤 2: 打印欢迎信息 (模拟构建)
+      - name: Run a one-line script
+        run: echo "开始构建项目..."
+      
+      # 步骤 3: 运行多行脚本 (模拟测试)
+      - name: Run tests
+        run: |
+          echo "正在运行单元测试..."
+          echo "测试通过！"
