@@ -1,10 +1,8 @@
 name: Vue 3 Deploy
 
-# 1. 这里是触发器
 on:
   push:
-    # 👇 关键修改：这里必须是 master
-    branches: ["master"]
+    branches: ["master"] # 确保这里是你真正的主分支名
 
 permissions:
   contents: write
@@ -14,26 +12,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      # 1. 安装 pnpm (新增步骤)
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          version: 9 # 使用 pnpm 9，如果你的本地是 8，这里改成 8
 
+      # 2. 设置 Node 环境 (升级到 Node 20)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # ⚠️ 必须升级到 20，否则 Vite 7 会报错
+          cache: 'pnpm'      # ⚠️ 这里改为缓存 pnpm
+
+      # 3. 安装依赖 (改用 pnpm)
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
+      # 4. 构建项目
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
-      # 防止 GitHub Pages 忽略下划线文件
+      # 5. 生成 .nojekyll 防止 404
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
 
+      # 6. 部署
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # 2. 确保这里是 dist (Vite 默认)
           folder: dist
