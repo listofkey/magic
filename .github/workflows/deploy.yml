@@ -1,8 +1,10 @@
 name: Vue 3 Deploy
 
+# 1. 这里是触发器
 on:
   push:
-    branches: ["main"]
+    # 👇 关键修改：这里必须是 master
+    branches: ["master"]
 
 permissions:
   contents: write
@@ -25,9 +27,13 @@ jobs:
 
       - name: Build
         run: npm run build
-        # Vue 3 + Vite 默认打包输出目录是 dist
+
+      # 防止 GitHub Pages 忽略下划线文件
+      - name: Create .nojekyll file
+        run: touch dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          # 2. 确保这里是 dist (Vite 默认)
           folder: dist
