@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+
   base:'/magic/',
   resolve: {
     alias: {
