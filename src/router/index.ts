@@ -178,7 +178,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "codegen",
-        component: "codegen/index",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Codegen",
         meta: {
           title: "代码生成",
@@ -205,7 +205,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "apifox",
-        component: "demo/api/apifox",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Apifox",
         meta: {
           title: "Apifox",
@@ -233,22 +233,11 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "internal-doc",
-        component: "demo/internal-doc",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "InternalDoc",
         meta: {
           title: "document",
           icon: "document",
-          hidden: false,
-          alwaysShow: false,
-          params: null,
-        },
-      },
-      {
-        path: "https://juejin.cn/post/7228990409909108793",
-        name: "Https://juejin.cn/post/7228990409909108793",
-        meta: {
-          title: "平台文档(外链)",
-          icon: "link",
           hidden: false,
           alwaysShow: false,
           params: null,
@@ -294,7 +283,7 @@ export const routes: RouteRecordRaw[] = [
             children: [
               {
                 path: "multi-level3-1",
-                component: "demo/multi-level/children/children/level3-1",
+                component: () => import('@/views/AboutView/index.vue'),
                 name: "MultiLevel31",
                 meta: {
                   title: "菜单三级-1",
@@ -307,7 +296,7 @@ export const routes: RouteRecordRaw[] = [
               },
               {
                 path: "multi-level3-2",
-                component: "demo/multi-level/children/children/level3-2",
+                component: () => import('@/views/AboutView/index.vue'),
                 name: "MultiLevel32",
                 meta: {
                   title: "菜单三级-2",
@@ -338,7 +327,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "curd",
-        component: "demo/curd/index",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Curd",
         meta: {
           title: "增删改查",
@@ -351,7 +340,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "table-select",
-        component: "demo/table-select/index",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "TableSelect",
         meta: {
           title: "列表选择器",
@@ -364,7 +353,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "wang-editor",
-        component: "demo/wang-editor",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "WangEditor",
         meta: {
           title: "富文本编辑器",
@@ -377,7 +366,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "upload",
-        component: "demo/upload",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Upload",
         meta: {
           title: "图片上传",
@@ -390,7 +379,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "dict-demo",
-        component: "demo/dictionary",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "DictDemo",
         meta: {
           title: "字典组件",
@@ -403,7 +392,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "icon-selector",
-        component: "demo/icon-selector",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "IconSelector",
         meta: {
           title: "图标选择器",
@@ -416,7 +405,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "drag",
-        component: "demo/drag",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Drag",
         meta: {
           title: "拖拽组件",
@@ -429,7 +418,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "text-scroll",
-        component: "demo/text-scroll",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "TextScroll",
         meta: {
           title: "滚动文本",
@@ -456,7 +445,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "route-param-type1",
-        component: "demo/route-param",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "RouteParamType1",
         meta: {
           title: "参数(type=1)",
@@ -471,7 +460,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "route-param-type2",
-        component: "demo/route-param",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "RouteParamType2",
         meta: {
           title: "参数(type=2)",
@@ -500,7 +489,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "vxe-table",
-        component: "demo/vxe-table/index",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "VxeTable",
         meta: {
           title: "VxeTable",
@@ -513,7 +502,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "icon-demo",
-        component: "demo/icons",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "IconDemo",
         meta: {
           title: "Icons",
@@ -526,7 +515,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "/function/websocket",
-        component: "demo/websocket",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "/function/websocket",
         meta: {
           title: "Websocket",
@@ -539,7 +528,7 @@ export const routes: RouteRecordRaw[] = [
       },
       {
         path: "other/:id",
-        component: "demo/other",
+        component: () => import('@/views/AboutView/index.vue'),
         name: "Other/:id",
         meta: {
           title: "敬请期待...",
