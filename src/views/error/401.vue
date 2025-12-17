@@ -1,0 +1,13 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <div class="app-container">
+    <h1>401</h1>
+  </div>
+</template>
+
+<style scoped>
+
+</style>
