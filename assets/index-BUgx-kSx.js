@@ -1,0 +1,1 @@
+import{_ as o,c as t,a as n,o as s}from"./index-BhU78-Z0.js";const a={},c={class:"app-container"};function r(_,e){return s(),t("div",c,[...e[0]||(e[0]=[n("h1",null,"AboutView",-1)])])}const d=o(a,[["render",r]]);export{d as default};
